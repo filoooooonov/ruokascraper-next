@@ -1,19 +1,13 @@
 "use server";
 
 import { Item, ProductData } from "./page";
-const puppeteer = require("puppeteer-extra");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-const ChromeApp = require("puppeteer-extra-plugin-stealth/evasions/chrome.app");
-const ChromeCSI = require("puppeteer-extra-plugin-stealth/evasions/chrome.csi");
 
 export async function Scraper(items: Item[]) {
-  puppeteer.use(StealthPlugin());
-  puppeteer.use(ChromeApp());
-  puppeteer.use(ChromeCSI());
+  const puppeteer = require("puppeteer-extra");
+  const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 
+  puppeteer.use(StealthPlugin());
   console.log("scraper received data", items);
-  let products_skaupat: ProductData = {};
-  let products_kesko: ProductData = {};
 
   try {
     const itemTitles: string[] = items.map((item) => item.title);
