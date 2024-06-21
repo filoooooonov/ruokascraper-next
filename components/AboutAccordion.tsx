@@ -1,9 +1,14 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { GoTriangleDown } from "react-icons/go";
 import { GoTriangleUp } from "react-icons/go";
 import { useState } from "react";
 
-const AboutAccordion = ({ title, text }) => {
+interface AccordionProps {
+  title: string;
+  text: ReactElement;
+}
+
+const AboutAccordion = ({ title, text }: AccordionProps) => {
   const [sectionOpen, setSectionOpen] = useState(false);
 
   return (
@@ -27,7 +32,7 @@ const AboutAccordion = ({ title, text }) => {
         }`}
       >
         <p className="text-gray-500 text-md pl-2 mb-2 w-[90%] leading-6 overflow-hidden">
-          {text}
+          <text />
         </p>
       </div>
     </div>
