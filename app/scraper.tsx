@@ -3,9 +3,11 @@
 import { Item, ProductData } from "./page";
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+const ChromeApp = require("puppeteer-extra-plugin-stealth/evasions/chrome.app");
 
 export async function Scraper(items: Item[]) {
   puppeteer.use(StealthPlugin());
+  puppeteer.use(ChromeApp());
 
   console.log("scraper received data", items);
   let products_skaupat: ProductData = {};
