@@ -30,6 +30,9 @@
     "typescript": "^5.5.2"
   },
   "pkg": {
-    "assets": "node_modules/puppeteer-extra-plugin-stealth/**/*.*"
+    "scripts": [
+      "node_modules/puppeteer/lib/*.js",
+      "node_modules/puppeteer-extra-plugin-stealth/**/*.js"
+    ]
   }
 }
