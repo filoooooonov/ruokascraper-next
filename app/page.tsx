@@ -139,10 +139,10 @@ export default function Home() {
               cheapest options to help you save money on your groceries.
               <br />
               To use Ruokascraper just write the products you need to buy in the
-              grocery list above (only in Finnish) and press "Make the list!"
-              button. You will be presented with two lists each representing a
-              store chain with the cheapest alternatives to the items in your
-              grocery list.
+              grocery list above (only in Finnish) and press &quot;Make the
+              list!&quot; button. You will be presented with two lists each
+              representing a store chain with the cheapest alternatives to the
+              items in your grocery list.
             </div>
           }
         />
@@ -152,14 +152,14 @@ export default function Home() {
           text={
             <div>
               Ruokascraper is a React App built with Tailwind for styling and
-              Express.js for the server-side. The product data is scraped from{" "}
+              Express.js for the server-side. The product data is scraped from
               <a href="https://www.k-ruoka.fi/">K-Ruoka </a>
               and <a href="https://www.s-kaupat.fi/">S-Kaupat</a> websites and
               then processed on the server side.
               <br />
-              You can check out the source code{" "}
+              You can check out the source code
               <a href="https://github.com/filoooooonov/ruoka-scraper">here </a>
-              and the author's portfolio{" "}
+              and the author's portfolio
               <a href="https://filoooooonov.github.io/">here</a>.
             </div>
           }
