@@ -1,12 +1,11 @@
 "use server";
 
+import dynamic from "next/dynamic";
 import { Item, ProductData } from "./page";
 
 export async function Scraper(items: Item[]) {
   const puppeteer = require("puppeteer-extra");
-  const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 
-  puppeteer.use(StealthPlugin());
   console.log("scraper received data", items);
 
   try {
