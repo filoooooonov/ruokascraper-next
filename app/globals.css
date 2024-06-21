@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-secondary {
+  @apply bg-[#FFDEDE];
+}
+
+.border-secondary {
+  @apply border-[#FFDEDE];
+}
+
+.bg-card-item {
+  @apply bg-[#FFF4F4];
+}
+
+.bg-primary {
+  @apply bg-[#FA8787];
+}
+
+.btn-primary {
+  @apply bg-primary rounded-md px-3 py-1 flex flex-row gap-2 items-center ease-in-out duration-300;
+  @apply hover:bg-[#fc9898];
+}
+
+.btn-secondary {
+  @apply bg-secondary rounded-md px-3 py-1 flex flex-row gap-2 items-center ease-in-out duration-300;
+  @apply hover:bg-[#fdc4c4];
+}
+
+a {
+  @apply text-[#FA8787];
+}
+
+.hidden {
+  @apply opacity-0 transition-opacity ease-out duration-500;
+  height: 0;
+  overflow: hidden;
+}
+
+.visible {
+  @apply opacity-100 transition-opacity ease-in duration-500;
+  height: auto;
+}
