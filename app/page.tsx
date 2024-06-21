@@ -1,5 +1,4 @@
 "use client";
-
 import AboutAccordion from "../components/AboutAccordion";
 import Kesko from "../components/Kesko";
 import SKaupat from "../components/SKaupat";
@@ -159,7 +158,7 @@ export default function Home() {
               <br />
               You can check out the source code
               <a href="https://github.com/filoooooonov/ruoka-scraper">here </a>
-              and the author's portfolio
+              and the author&apos;s portfolio
               <a href="https://filoooooonov.github.io/">here</a>.
             </div>
           }
