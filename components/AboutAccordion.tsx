@@ -32,7 +32,7 @@ const AboutAccordion = ({ title, text }: AccordionProps) => {
         }`}
       >
         <p className="text-gray-500 text-md pl-2 mb-2 w-[90%] leading-6 overflow-hidden">
-          <text />
+          {text}
         </p>
       </div>
     </div>
