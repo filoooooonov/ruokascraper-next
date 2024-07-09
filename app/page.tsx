@@ -56,12 +56,30 @@ export default function Home() {
     setItemsSentToServer(itemsToSend.length);
 
     try {
-      // Send items to server
-      console.log("Sending data to the scraper:", itemsToSend);
+      // TEST WITH API ROUTE
+
       let scrapedItems: { skaupat: ProductData; kesko: ProductData };
-      scrapedItems = await Scraper(itemsToSend);
-      setFinalSKaupat(scrapedItems.skaupat);
-      setFinalKesko(scrapedItems.kesko);
+      console.log("Sending data to the scraper:", itemsToSend);
+      const runScraper = async () => {
+        const response = await fetch("/api/scraper", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ items: itemsToSend }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const skaupat = data.skaupat;
+            const kesko = data.kesko;
+            setFinalSKaupat(skaupat);
+            setFinalKesko(kesko);
+
+            console.log(skaupat);
+            console.log(kesko);
+          });
+      };
+      runScraper();
       setLoading(false);
       ``;
     } catch (error) {
