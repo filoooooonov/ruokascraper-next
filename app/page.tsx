@@ -132,7 +132,7 @@ export default function Home() {
         <AboutAccordion
           title={"What is it?"}
           text={
-            <div>
+            <>
               Ruokascraper saves you time and money on groceries. It creates
               separate grocery lists for store chains and shows only the
               cheapest options to help you save money on your groceries.
@@ -142,14 +142,14 @@ export default function Home() {
               list!&quot; button. You will be presented with two lists each
               representing a store chain with the cheapest alternatives to the
               items in your grocery list.
-            </div>
+            </>
           }
         />
         <hr />
         <AboutAccordion
           title={"How is it built"}
           text={
-            <div>
+            <>
               Ruokascraper is a React App built with Tailwind for styling and
               Express.js for the server-side. The product data is scraped from
               <a href="https://www.k-ruoka.fi/">K-Ruoka </a>
@@ -160,7 +160,7 @@ export default function Home() {
               <a href="https://github.com/filoooooonov/ruoka-scraper">here </a>
               and the author&apos;s portfolio
               <a href="https://filoooooonov.github.io/">here</a>.
-            </div>
+            </>
           }
         />
       </footer>

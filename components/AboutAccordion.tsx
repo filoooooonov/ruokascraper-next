@@ -12,7 +12,7 @@ const AboutAccordion = ({ title, text }: AccordionProps) => {
   const [sectionOpen, setSectionOpen] = useState(false);
 
   return (
-    <div>
+    <>
       <button
         className="py-2 pl-2 text-gray-500 flex items-center cursor-pointer"
         onClick={() => setSectionOpen(!sectionOpen)}
@@ -32,10 +32,10 @@ const AboutAccordion = ({ title, text }: AccordionProps) => {
         }`}
       >
         <p className="text-gray-500 text-md pl-2 mb-2 w-[90%] leading-6 overflow-hidden">
-          {text}
+          <span>{text}</span>
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

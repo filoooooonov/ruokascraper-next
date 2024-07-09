@@ -1,11 +1,12 @@
 "use server";
 
-import dynamic from "next/dynamic";
 import { Item, ProductData } from "./page";
 
-export async function Scraper(items: Item[]) {
-  const puppeteer = require("puppeteer-extra");
+const puppeteer = require("puppeteer-extra");
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+puppeteer.use(StealthPlugin());
 
+export async function Scraper(items: Item[]) {
   console.log("scraper received data", items);
 
   try {
@@ -86,7 +87,12 @@ export async function Scraper(items: Item[]) {
 
     for (let i = 0; i < items.length; i++) {
       const url = `https://www.k-ruoka.fi/kauppa/tuotehaku?haku=${itemTitle[i]}&orderBy=price-asc`;
-      await page.goto(url, { waitUntil: "networkidle0" });
+      await page.goto(url);
+
+      await page.screenshot({
+        path: "full_page_screenshot.png",
+        fullPage: true,
+      });
 
       let price_kilo = await page.evaluate(() => {
         const element = document.querySelector(
@@ -112,7 +118,7 @@ export async function Scraper(items: Item[]) {
         const element = document.querySelector(
           '[data-testid="product-card"] a'
         ) as HTMLElement;
-        return element.title;
+        return element?.title;
       });
 
       let imageUrl = await page.evaluate(() => {
