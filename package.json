@@ -39,6 +39,7 @@
     "scripts": [
       "node_modules/puppeteer/lib/*.js",
       "node_modules/puppeteer-extra-plugin-stealth/**/*.js"
-    ]
+    ],
+    "assets": "node_modules/puppeteer-extra-plugin-stealth/**/*.*"
   }
 }

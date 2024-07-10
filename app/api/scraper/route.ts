@@ -1,5 +1,4 @@
 import { Item, ProductData } from "@/app/page";
-import { NextResponse } from "next/server";
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 require("puppeteer-extra-plugin-stealth/evasions/chrome.app");
@@ -19,7 +18,6 @@ require("puppeteer-extra-plugin-stealth/evasions/user-agent-override");
 require("puppeteer-extra-plugin-stealth/evasions/webgl.vendor");
 require("puppeteer-extra-plugin-stealth/evasions/window.outerdimensions");
 require("puppeteer-extra-plugin-stealth/evasions/defaultArgs");
-require("puppeteer-extra-plugin-user-preferences");
 puppeteer.use(StealthPlugin());
 
 export async function POST(req: Request) {
