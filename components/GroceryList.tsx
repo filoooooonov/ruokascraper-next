@@ -21,11 +21,24 @@ const GroceryList = ({
 }: GroceryListProps) => {
   const [newItem, setNewItem] = useState("");
 
-  function handleSubmitItems(e: FormEvent) {
+  // For submitting new items in the grocery list
+  const handleSubmitItems = (e: FormEvent) => {
     e.preventDefault();
     addItem(newItem, e);
     setNewItem("");
-  }
+  };
+
+  // For submitting the whole grocery list
+  const handleSubmitList = async (e: FormEvent) => {
+    e.preventDefault();
+    if (newItem !== "") {
+      await addItem(newItem, e);
+      sendAllItems([...items, { id: crypto.randomUUID(), title: newItem }]);
+      setNewItem("");
+    } else {
+      sendAllItems(items);
+    }
+  };
 
   return (
     <div className="w-full md:pr-8">
@@ -49,7 +62,7 @@ const GroceryList = ({
             );
           })}
         </ul>
-        <form onSubmit={(e) => handleSubmitItems(e)}>
+        <form onSubmit={handleSubmitItems}>
           <input
             type="text"
             className="text-lg py-2 pl-4 rounded-lg cursor-pointer w-full outline-none focus:ring-0 focus:border-none border-none"
@@ -63,7 +76,7 @@ const GroceryList = ({
       <div className="flex flex-row justify-between">
         <button
           type="submit"
-          onClick={(e) => handleSubmitItems(e)}
+          onClick={handleSubmitItems}
           className="btn-secondary"
         >
           <FiPlusCircle />
@@ -72,19 +85,7 @@ const GroceryList = ({
 
         <button
           type="submit"
-          onClick={async (e) => {
-            e.preventDefault();
-            if (newItem !== "") {
-              await addItem(newItem, e);
-              sendAllItems([
-                ...items,
-                { id: crypto.randomUUID(), title: newItem },
-              ]);
-              setNewItem("");
-            } else {
-              sendAllItems(items);
-            }
-          }}
+          onClick={handleSubmitList}
           className="btn-primary"
         >
           {/* Loading icon */}

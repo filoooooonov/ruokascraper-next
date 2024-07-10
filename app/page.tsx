@@ -5,7 +5,6 @@ import SKaupat from "../components/SKaupat";
 import GroceryList from "../components/GroceryList";
 import NavBar from "../components/NavBar";
 import { useState, useEffect, FormEvent } from "react";
-import { Scraper } from "./scraper";
 
 export interface Item {
   id: string;
@@ -57,7 +56,6 @@ export default function Home() {
 
     try {
       // TEST WITH API ROUTE
-
       let scrapedItems: { skaupat: ProductData; kesko: ProductData };
       console.log("Sending data to the scraper:", itemsToSend);
       const runScraper = async () => {
