@@ -1,7 +1,6 @@
 import { Item, ProductData } from "@/app/page";
 const puppeteer = require("puppeteer-extra");
-// const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-import stealth from "puppeteer-extra-plugin-stealth";
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 
 // require("puppeteer-extra-plugin-stealth/evasions/chrome.app");
 // require("puppeteer-extra-plugin-stealth/evasions/chrome.csi");
@@ -20,7 +19,7 @@ import stealth from "puppeteer-extra-plugin-stealth";
 // require("puppeteer-extra-plugin-stealth/evasions/webgl.vendor");
 // require("puppeteer-extra-plugin-stealth/evasions/window.outerdimensions");
 // require("puppeteer-extra-plugin-stealth/evasions/defaultArgs");
-puppeteer.use(stealth());
+puppeteer.use(StealthPlugin());
 
 export async function POST(req: Request) {
   console.log("running Scraper");
