@@ -59,23 +59,28 @@ export default function Home() {
       let scrapedItems: { skaupat: ProductData; kesko: ProductData };
       console.log("Sending data to the scraper:", itemsToSend);
       const runScraper = async () => {
-        const response = await fetch("/api/scraper", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ items: itemsToSend }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            const skaupat = data.skaupat;
-            const kesko = data.kesko;
-            setFinalSKaupat(skaupat);
-            setFinalKesko(kesko);
+        const response = await fetch(
+          "https://scraper-idaq6iddfa-uc.a.run.app",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ items: itemsToSend }),
+          }
+        );
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
 
-            console.log(skaupat);
-            console.log(kesko);
-          });
+        const data = await response.json();
+        const skaupat = data.skaupat;
+        const kesko = data.kesko;
+        setFinalSKaupat(skaupat);
+        setFinalKesko(kesko);
+
+        console.log(skaupat);
+        console.log(kesko);
       };
       runScraper();
       setLoading(false);

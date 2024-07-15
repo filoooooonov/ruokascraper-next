@@ -6,15 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@types/puppeteer": "^7.0.4",
+    "chrome-aws-lambda": "^10.1.0",
     "firebase": "^10.12.3",
     "next": "14.2.4",
     "next-transpile-modules": "^10.0.1",
     "puppeteer": "^22.12.0",
-    "puppeteer-core": "^22.12.1",
+    "puppeteer-core": "^10.1.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-anonymize-ua": "^2.4.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
